@@ -1,14 +1,19 @@
 class DockingStation
    attr_reader :bike
 
-   def release_bike
-     Bike.new
+   def release
+     fail "Station is empty" unless @bike
+     @bike
    end
 
-   def dock_bike
+   def dock(bike)
+     @bike = bike
    end
+
 
 end
+
+
 
 
 class Bike
