@@ -1,10 +1,14 @@
+class Bike
+  def working?
+    true
+  end
+end
+
 class DockingStation
    attr_reader :bike, :capacity, :rack
 
    def initialize
      @rack = []
-     @capacity = 20
-
    end
 
    def release
@@ -12,15 +16,14 @@ class DockingStation
    end
 
    def dock(bike)
-     fail "Station is full" if @rack.count >= @capacity
+     fail "Station is full" if full?
      @rack << bike
-
   end
 
-end
+  private
 
-class Bike
-  def working?
-    true
+  def full?
+     @rack.count >= 20
   end
+
 end
